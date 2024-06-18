@@ -1,0 +1,12 @@
+
+<form {{on "submit" this.handleLogin}}>
+    <div class="loginContainer">
+        <input id="email" {{on "input" this.updateEmail}} type="text" placeholder="Email" name="email" required>
+        <input id="password" {{on "input" this.updatePassword}} type="password" placeholder="Password" name="password" required>
+        <LinkTo @route="forgotpassword" class="link">Forgot Password?</LinkTo>
+        <input type="submit" value="Login" class="button">
+        <div class="extras">
+            <p>New User? <LinkTo @route="signup" class="link">Sign Up</LinkTo></p>
+        </div>
+    </div>
+</form>

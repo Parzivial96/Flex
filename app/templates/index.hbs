@@ -1,0 +1,24 @@
+{{page-title "Home"}}
+
+<div class="greetContainer">
+    <div class="greetMessage">
+        <p id="welcome">Hello 👋,</p>
+        <p id="name">{{@model.name}}</p>
+    </div>
+    <img src="../assets/welcomebox.png" class="welcomeBoxImage">
+</div>
+
+<p id="categoryText">Explore Category</p>
+
+<div class="categoryContainer">
+    <Card @category="T-Shirt"/>
+    <Card @category="Short"/>
+    <Card @category="Hat"/>
+    <Card @category="Pant"/>
+    <Card @category="Hoodie"/>
+    <Card @category="Track Pant"/>
+    <Card @category="Shirt"/>
+    <Card @category="Watch"/>
+    <Card @category="Jean"/>
+    <Card @category="Shoe"/>
+</div>

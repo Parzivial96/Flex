@@ -1,0 +1,14 @@
+{{page-title "Signup"}}
+
+<form action="validate">
+    <div class="signupContainer">
+        <input id="name" type="text" placeholder="Name" required>
+        <input id="username" type="text" placeholder="Email or Phone Number" required>
+        <input id="password" type="password" placeholder="Password" required>
+        <input id="confirmpassword" type="password" placeholder="Confirm Password" required>
+        <input type="submit" value="Signup" class="button">
+        <div class="extras">
+            <p>Existing User? <LinkTo @route="login" class="link">Login</LinkTo></p>
+        </div>
+    </div>
+</form>

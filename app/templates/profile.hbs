@@ -1,0 +1,26 @@
+{{page-title "Profile"}}
+
+<div class="profileContainer">
+    <div class="profileImageContainer">
+        <img src="data:image/png;base64,{{@model.dp}}">
+    </div>
+    <div class="userDetails">
+        <p id="username">{{@model.name}}</p>
+        <p id="email">{{@model.email}}</p><br>
+        <LogoutButton />
+    </div>
+</div>
+<div class="optionsContainer">
+    <LinkTo @route="myorders" class="optionsButton">
+        <img src="../assets/myorder.png">
+        <p>My Orders</p>
+    </LinkTo>
+    <LinkTo @route="favorites" class="optionsButton">
+        <img src="../assets/favorite.png">
+        <p>Favorites</p>
+    </LinkTo>
+    <LinkTo @route="cart" class="optionsButton">
+        <img src="../assets/cart.png">
+        <p>Cart</p>
+    </LinkTo>
+</div>
