@@ -1,0 +1,19 @@
+<form {{on "submit" this.handleSignup}}>
+    <div class="signupContainer">
+        <input id="name" {{on "input" this.updateName}} type="text" placeholder="Name" required>
+        <input id="username" {{on "input" this.updateEmail}} type="text" placeholder="Email" required>
+        <div class="passwordContainer">
+            <input id="password" {{on "input" this.updatePassword}} type={{if this.showPassword "text" "password"}} placeholder="Create a Password" name="password" required>
+            <img src={{if this.showPassword "../assets/showPassword.png" "../assets/hidePassword.png"}} {{on "click" this.updateShowPassword}}>
+        </div>
+        <div class="passwordContainer">
+            <input id="confirmPassword" {{on "input" this.updateConfirmPassword}} type={{if this.showPassword "text" "password"}} placeholder="Confirm Password" name="password" required>
+            <img src={{if this.showPassword "../assets/showPassword.png" "../assets/hidePassword.png"}} {{on "click" this.updateShowPassword}}>
+        </div>
+        <span class="errorMessage">{{this.errorMessage}}</span>
+        <input type="submit" value="Signup" class="button">
+        <div class="extras">
+            <p>Existing User? <LinkTo @route="login" class="link">Login</LinkTo></p>
+        </div>
+    </div>
+</form>

@@ -1,14 +1,11 @@
 {{page-title "Cart"}}
 
 <div class="cartContainer">
-    <div class="cartCardContainer">
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-
+    <div class="cartSummaryContainer">
+        <p id="productName">Cart Summary</p>
+        <p> Number of Items : {{this.model.length}}</p>
     </div>
+    {{#each this.model as |orderDetails|}}
+    <CartCard @orderDetails={{orderDetails}} />
+    {{/each}}
 </div>

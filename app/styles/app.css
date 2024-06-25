@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  text-decoration: none;
+  color: #000;
 }
 
 body {
@@ -30,6 +32,60 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.loginPageContainer {
+  display: flex;
+  align-items: center;
+  height: 78vh;
+  width: 80%;
+  position: relative;
+}
+
+.loginPageGreetText {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+.errorMessage {
+  color: red;
+}
+
+#signupBG {
+  margin-left: 200px;
+  width: 45%;
+  height: 75%;
+}
+
+#loginBG {
+  margin-left: 250px;
+  width: 40%;
+  height: 75%;
+}
+
+#welcomeback {
+  font-size: 42px;
+}
+
+#logintoyouraccount {
+  font-size: 22px;
+}
+
+.passwordContainer {
+  width: 100%;
+  margin-left: 38px;
+  position: relative;
+  overflow: hidden;
+}
+
+.passwordContainer img {
+  position: absolute;
+  top: 1px;
+  right: 40px;
+  width: 22%;
+  border-left: 0.5px solid black;
+  object-fit: contain;
 }
 
 .button {
@@ -129,6 +185,18 @@ input:focus {
   background-color: #e46855;
 }
 
+.greetCartoon {
+  width: 240px;
+  height: 320px;
+  position: absolute;
+  left: 80px;
+}
+
+.greetCartoonImage {
+  width: 100%;
+  height: 100%;
+}
+
 .greetMessage h2 {
   font-size: 50px;
 }
@@ -136,7 +204,7 @@ input:focus {
 .greetMessage {
   position: absolute;
   top: 80px;
-  left: 80px;
+  left: 300px;
   color: #fbfbfb;
   font-family: poppins;
   font-size: 40px;
@@ -144,6 +212,11 @@ input:focus {
 
 .greetMessage #name {
   font-size: 60px;
+  color: white;
+}
+
+#welcome {
+  color: white;
 }
 
 .welcomeBoxImage {
@@ -285,27 +358,322 @@ input:focus {
 }
 
 .cartContainer {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 50px;
+  width: 80%;
   height: 100%;
   background-color: #e46855;
   color: white;
   padding-left: 10%;
   padding-top: 5%;
+  padding-right: 10%;
 }
 
-.cartCard {
-  width: 80%;
+.cartSummaryContainer {
   height: 200px;
   margin-bottom: 10px;
   background-color: #fff;
   color: black;
   border-radius: 10px;
+  padding: 10px;
+}
+
+.cartCard {
+  height: 200px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.cartImage {
+  width: 40%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.cartDetails {
+  font-size: 18px;
+  position: relative;
+}
+
+#productName {
+  font-size: 28px;
+}
+
+#productPrice {
+  color: #f9f9f9;
+  background-color: green;
+  border: none;
+  position: absolute;
+  font-size: 22px;
+  bottom: 5px;
+  height: 40px;
+  padding-left: 5px;
+  width: max-content;
+}
+
+#price {
+  background-color: rgb(44 44 44);
+  color: rgb(215 215 215);
+  padding: 6px;
 }
 
 .footerContainer {
   height: 100px;
   width: 100%;
   background-color: #e46855;
+}
+
+.dashboardContainer {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dashboardContainer .optionsButton {
+  width: 200px;
+  height: 300px;
+  box-shadow:
+    rgb(50 50 93 / 25%) 0 50px 100px -20px,
+    rgb(0 0 0 / 30%) 0 30px 60px -30px;
+}
+
+.manageContainer {
+  display: grid;
+  padding: 50px;
+  grid-template-columns: auto auto auto auto auto;
+  row-gap: 40px;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 50px;
+}
+
+.product-card {
+  width: 300px;
+  height: 400px;
+  background-color: antiquewhite;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.editContainer {
+  max-width: 600px;
+  margin: 25px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.editForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.editForm img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.addProductContainer {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.addProductForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.addProductForm img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.formField {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.formField label {
+  width: 30%;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.formField input {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.editForm input[type="file"] {
+  width: 300px;
+}
+
+.editDpContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.editForm input[type="submit"],
+input[type="button"] {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.editForm input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.editActionButtonContainer {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.editForm input[type="button"] {
+  background-color: rgb(255 0 0);
+}
+
+.editForm input[type="button"]:hover {
+  background-color: rgb(216 2 2);
+}
+
+.addProductButtonContainer {
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  vertical-align: center;
+}
+
+.selectContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pcategory {
+  width: 70%;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+s,
+strike {
+  text-decoration: none;
+  position: relative;
+}
+
+s::before,
+strike::before {
+  top: 50%;
+  background: red;
+  opacity: 0.7;
+  content: "";
+  width: 110%;
+  position: absolute;
+  height: 0.1em;
+  border-radius: 0.1em;
+  left: -5%;
+  white-space: nowrap;
+  display: block;
+  transform: rotate(-15deg);
+}
+
+s.straight::before,
+strike.straight::before {
+  transform: rotate(0deg);
+  left: -1%;
+  width: 102%;
+}
+
+.addtocartContainer {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.addtocartContainer:hover {
+  cursor: pointer;
+}
+
+#addtocart {
+  object-fit: contain;
+  width: 80%;
+  height: 80%;
+}
+
+.previewContainer {
+  display: flex;
+  padding: 20px;
+  border: 0.5px solid #ccc;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow:
+    rgb(50 50 93 / 25%) 0 50px 100px -20px,
+    rgb(0 0 0 / 30%) 0 30px 60px -30px;
 }

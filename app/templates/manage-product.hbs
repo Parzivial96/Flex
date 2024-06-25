@@ -1,0 +1,15 @@
+{{page-title "ManageProduct"}}
+
+<div class="addProductButtonContainer">
+    <LinkTo @route="addProduct" style="margin-bottom: 3px; color:white;">
+        +
+    </LinkTo>
+</div>
+
+<div class="manageContainer">
+    {{#each this.model as |product|}}
+    <LinkTo @route="edit" @model={{product.id}}>
+        <Product @product={{product}} />
+    </LinkTo>
+    {{/each}}
+</div>

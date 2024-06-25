@@ -23,4 +23,10 @@
         <img src="../assets/cart.png">
         <p>Cart</p>
     </LinkTo>
+    {{#if (not-eq @model.role 'Consumer')}}
+    <LinkTo @route="dashboard" class="optionsButton">
+        <img src="../assets/dashboard.png">
+        <p>Dashboard</p>
+    </LinkTo>
+    {{/if}}
 </div>

@@ -1,0 +1,14 @@
+{{page-title "Dashboard"}}
+
+<div class="dashboardContainer">
+        <LinkTo @route="manageProduct" class="optionsButton">
+                <img src="../assets/dashboard.png">
+                <p>Manage Product</p>
+        </LinkTo>
+        {{#if (eq @model.role 'Admin')}}
+        <LinkTo @route="manageUser" class="optionsButton">
+                <img src="../assets/dashboard.png">
+                <p>Manage User</p>
+        </LinkTo>
+        {{/if}}
+</div>

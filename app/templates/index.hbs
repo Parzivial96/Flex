@@ -1,6 +1,9 @@
 {{page-title "Home"}}
 
 <div class="greetContainer">
+    <div class="greetCartoon">
+        <img src="../assets/greetCartoon.png" class="greetCartoonImage">
+    </div>
     <div class="greetMessage">
         <p id="welcome">Hello 👋,</p>
         <p id="name">{{@model.name}}</p>
@@ -11,14 +14,40 @@
 <p id="categoryText">Explore Category</p>
 
 <div class="categoryContainer">
-    <Card @category="T-Shirt"/>
-    <Card @category="Short"/>
-    <Card @category="Hat"/>
-    <Card @category="Pant"/>
-    <Card @category="Hoodie"/>
-    <Card @category="Track Pant"/>
-    <Card @category="Shirt"/>
-    <Card @category="Watch"/>
-    <Card @category="Jean"/>
-    <Card @category="Shoe"/>
+    <LinkTo @route="explore" @model="T-Shirt" data-aos="fade-up">
+        <Card @category="T-Shirt" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Short" data-aos="fade-up">
+        <Card @category="Short" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Hat" data-aos="fade-up">
+        <Card @category="Hat" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Pant" data-aos="fade-up">
+        <Card @category="Pant" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Hoodie" data-aos="fade-up">
+        <Card @category="Hoodie" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Track Pant" data-aos="fade-up">
+        <Card @category="Track Pant" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Shirt" data-aos="fade-up">
+        <Card @category="Shirt" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Watch" data-aos="fade-up">
+        <Card @category="Watch" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Jean" data-aos="fade-up">
+        <Card @category="Jean" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Shoe" data-aos="fade-up">
+        <Card @category="Shoe" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Slipper" data-aos="fade-up">
+        <Card @category="Slipper" />
+    </LinkTo>
+    <LinkTo @route="explore" @model="Others" data-aos="fade-up">
+        <Card @category="Others" />
+    </LinkTo>
 </div>

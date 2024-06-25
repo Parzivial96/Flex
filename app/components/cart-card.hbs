@@ -1,3 +1,9 @@
 <div class="cartCard">
-    
+    <img class="cartImage" src="data:image/png;base64,{{@orderDetails.dp}}">
+    <div class="cartDetails">
+        <p id="productName">{{@orderDetails.name}}</p>
+        <p>Color : {{@orderDetails.color}} | Size : {{@orderDetails.size}}</p>
+        <p>Discount : {{@orderDetails.discount}}%</p>
+        <button id="productPrice" type="button">BUY NOW <span id="price">₹{{@orderDetails.price}}</span></button>  
+    </div>
 </div>

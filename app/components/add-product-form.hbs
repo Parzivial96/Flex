@@ -1,0 +1,72 @@
+<form class="addProductForm" {{on "submit" this.handleAddProduct}}>
+    <div class="formField">
+        <label for="pdp">Product Image:</label>
+        <input type="file" id="pdp" name="dp" {{on "input" this.updateDp}} required>
+    </div>
+
+    <div class="formField">
+        <label for="pname">Name:</label>
+        <input type="text" id="pname" name="name" {{on "input" this.updateName}} required>
+    </div>
+
+    <div class="formField">
+        <label for="pcategory">Category:</label>
+        <select id="pcategory" name="category" {{on "input" this.updateCategory}} required>
+            <option value="T-Shirt">T-Shirt</option>
+            <option value="Short">Short</option>
+            <option value="Shirt">Shirt</option>
+            <option value="Pant">Pant</option>
+            <option value="Hat">Hat</option>
+            <option value="Hoodie">Hoodie</option>
+            <option value="Track Pant">Track Pant</option>
+            <option value="Watch">Watch</option>
+            <option value="Jean">Jean</option>
+            <option value="Shoe">Shoe</option>
+            <option value="Slipper">Slipper</option>
+            <option value="Others">Others</option>
+        </select>
+    </div>
+
+    <div class="formField">
+        <label for="pprice">Price:</label>
+        <input type="text" id="pprice" name="price" {{on "input" this.updatePrice}} required>
+    </div>
+
+    <div class="formField">
+        <label for="pdiscount">Discount (%):</label>
+        <input type="text" id="pdiscount" name="discount" {{on "input" this.updateDiscount}} required>
+    </div>
+
+    <div class="formField">
+        <label for="psize">Size:</label>
+        <input type="text" id="psize" name="size" placeholder="S,M,L,XL,..." {{on "input" this.updateSize}} required>
+    </div>
+
+    <div class="formField">
+        <label for="pcolor">Color:</label>
+        <input type="text" id="pcolor" name="color" placeholder="Red,White,..." {{on "input" this.updateColor}} required>
+    </div>
+
+    <div class="selectContainer">
+        <div class="formField">
+            <label for="pgender">Gender:</label>
+            <select id="pgender" name="gender" {{on "input" this.updateGender}} required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Unisex">Unisex</option>
+            </select>
+        </div>
+
+        <div class="formField">
+            <label for="page">Age:</label>
+            <select id="page" name="age" {{on "input" this.updateAge}} required>
+                <option value="Kids">Kids</option>
+                <option value="Young">Young</option>
+                <option value="Man">Man</option>
+            </select>
+        </div>
+    </div>
+
+    <input type="submit" value="Save" class="button" style="margin-left: 50px;">
+
+</form>

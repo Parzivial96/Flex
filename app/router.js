@@ -10,10 +10,16 @@ Router.map(function () {
   this.route('login');
   this.route('signup');
   this.route('forgotpassword');
-  this.route('about');
   this.route('profile');
-  this.route('adduser');
   this.route('myorders');
   this.route('cart');
   this.route('favorites');
+  this.route('dashboard');
+  this.route('manageUser');
+  this.route('manageProduct');
+  this.route('explore', { path: 'explore/:category' });
+  this.route('edit', { path: 'edit/:id' });
+  this.route('addProduct');
+  this.route('preview', { path: 'preview/:id' });
+  this.route('addUser');
 });

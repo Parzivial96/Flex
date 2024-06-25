@@ -1,0 +1,55 @@
+<form class="editForm" {{on "submit" this.handleAddProduct}}>
+
+    <div class="editDpContainer">
+        <img src="data:image/png;base64,{{this.dp}}">
+        <input type="file" name="dp" {{on "input" this.updateNewDp}}>
+        {{#if this.previewDp}}
+        <img src="{{this.previewDp}}">
+        {{/if}}
+        {{log this.newDp}}
+    </div>
+
+    <div class="formField">
+        <label for="pname">Name:</label>
+        <input type="text" id="pname" value="{{this.name}}" {{on "input" this.updateName}}>
+    </div>
+
+    <div class="formField">
+        <label for="pcategory">Category:</label>
+        <input type="text" id="pcategory" value="{{this.category}}" {{on "input" this.updateCategory}}>
+    </div>
+
+    <div class="formField">
+        <label for="pprice">Price:</label>
+        <input type="text" id="pprice" value="{{this.price}}" {{on "input" this.updatePrice}}>
+    </div>
+
+    <div class="formField">
+        <label for="pdiscount">Discount:</label>
+        <input type="text" id="pdiscount" value="{{this.discount}}" {{on "input" this.updateDiscount}}>
+    </div>
+
+    <div class="formField">
+        <label for="psize">Size:</label>
+        <input type="text" id="psize" value="{{this.size}}" {{on "input" this.updateSize}}>
+    </div>
+
+    <div class="formField">
+        <label for="pcolor">Color:</label>
+        <input type="text" id="pcolor" value="{{this.color}}" {{on "input" this.updateColor}}>
+    </div>
+
+    <div class="formField">
+        <label for="pgender">Gender:</label>
+        <input type="text" id="pgender" value="{{this.gender}}" {{on "input" this.updateGender}}>
+    </div>
+
+    <div class="formField">
+        <label for="page">Age:</label>
+        <input type="text" id="page" value="{{this.age}}" {{on "input" this.updateAge}}>
+    </div>
+    <div class="editActionButtonContainer">
+        <input type="submit" value="Save">
+        <input type="button" value="Delete" {{on "click" this.handleDeleteProduct}}>
+    </div>
+</form>

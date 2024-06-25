@@ -2,7 +2,11 @@
 <form {{on "submit" this.handleLogin}}>
     <div class="loginContainer">
         <input id="email" {{on "input" this.updateEmail}} type="text" placeholder="Email" name="email" required>
-        <input id="password" {{on "input" this.updatePassword}} type="password" placeholder="Password" name="password" required>
+        <div class="passwordContainer">
+            <input id="password" {{on "input" this.updatePassword}} type={{if this.showPassword "text" "password"}} placeholder="Password" name="password" required>
+            <img src={{if this.showPassword "../assets/showPassword.png" "../assets/hidePassword.png"}} {{on "click" this.updateShowPassword}}>
+        </div>
+        <span class="errorMessage">{{this.errorMessage}}</span>
         <LinkTo @route="forgotpassword" class="link">Forgot Password?</LinkTo>
         <input type="submit" value="Login" class="button">
         <div class="extras">

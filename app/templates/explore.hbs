@@ -1,0 +1,22 @@
+{{page-title "Explore"}}
+
+<div class="products-container">
+  {{#each @model as |product|}}
+  <LinkTo @route="preview" @model={{product}}>
+    <div class="product-card">
+      <img src="data:image/png;base64,{{product.dp}}">
+      <h3>{{product.name}}</h3>
+      <p>Gender: {{product.gender}}</p>
+      <p>Age: {{product.age}}</p>
+      <p>Discount: {{product.discount}}%</p>
+      {{#if (not-eq product.discountedPrice product.price)}}
+      <p>Price: <s>₹{{product.price}}</s> {{product.discountedPrice}}</p>
+      {{else}}
+      <p>Price: ₹{{product.discountedPrice}}</p>
+      {{/if}}
+    </div>
+  </LinkTo>
+  {{else}}
+  <p>No products found for this category.</p>
+  {{/each}}
+</div>

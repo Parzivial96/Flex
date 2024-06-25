@@ -5,7 +5,7 @@
     <h1>Flex</h1>
   </LinkTo>
   </div>
-  {{#if (not-eq this.router.currentRouteName 'login')}}
+  {{#if (not-eq this.shouldHideDiv true)}}
   <div class="search">
     <input type="text" name="searchquery" placeholder="Search for categories and more...">
   </div>
@@ -22,7 +22,7 @@
     </div>
     <div class="navProfileContainer">
     <LinkTo @route="profile" class="menu-profile">
-      <img src="../assets/defaultDP.png">
+      <img src="data:image/png;base64,{{this.userData.user.dp}}">
     </LinkTo>
     </div>
   </div>
