@@ -12,7 +12,7 @@
     <div class="formField">
         <label for="pcategory">Category:</label>
         <select id="pcategory" name="category" {{on "input" this.updateCategory}} required>
-            <option value="T-Shirt">T-Shirt</option>
+            <option value="T-Shirt" selected>T-Shirt</option>
             <option value="Short">Short</option>
             <option value="Shirt">Shirt</option>
             <option value="Pant">Pant</option>
@@ -51,7 +51,7 @@
         <div class="formField">
             <label for="pgender">Gender:</label>
             <select id="pgender" name="gender" {{on "input" this.updateGender}} required>
-                <option value="Male">Male</option>
+                <option value="Male" selected>Male</option>
                 <option value="Female">Female</option>
                 <option value="Unisex">Unisex</option>
             </select>
@@ -60,7 +60,7 @@
         <div class="formField">
             <label for="page">Age:</label>
             <select id="page" name="age" {{on "input" this.updateAge}} required>
-                <option value="Kids">Kids</option>
+                <option value="Kids" selected>Kids</option>
                 <option value="Young">Young</option>
                 <option value="Man">Man</option>
             </select>

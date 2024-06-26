@@ -18,6 +18,7 @@ export default class EditProductFormComponent extends Component {
   @tracked age = this.args.age;
 
   @service router;
+  @service notification;
 
   @action
   updateNewDp(event) {
@@ -103,9 +104,12 @@ export default class EditProductFormComponent extends Component {
     });
 
     if (response.ok) {
-      location.reload();
+      this.notification.showMessage('Product Updated 👍');
+      setTimeout(function() {
+        location.reload();
+      }, 5000);
     } else {
-      this.router.transitionTo('/login');
+      this.router.transitionTo('login');
     }
   }
 
@@ -123,9 +127,10 @@ export default class EditProductFormComponent extends Component {
     });
 
     if (response.ok) {
-      this.router.transitionTo('/manageProduct');
+      this.notification.showMessage('Product Deleted ❌');
+      this.router.transitionTo('manageProduct');
     } else {
-      this.router.transitionTo('/login');
+      this.router.transitionTo('login');
     }
   }
 }

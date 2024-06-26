@@ -1,13 +1,43 @@
 {{page-title "Preview"}}
-
 <div class="previewContainer">
     <img src="data:image/png;base64,{{this.model.dp}}">
     <div class="previewProductRightSection">
-        <p id="productName">{{this.model.name}}</p>
+        <div class="productTitleContainer">
+            <p id="productName">{{this.model.name}}</p>
+            <span id="gender">{{this.model.gender}}</span>
+        </div>
         <form>
-            <label for="product-size">
-                Size
-            </label>
+            <p>Color</p>
+            <div id="color-options" class="colorOptions">
+                {{#each this.model.color as |colorOption|}}
+                <label class="radioContainer">
+                    <input type="radio" name="color" value="{{colorOption}}" {{on "change" this.selectColor}}>
+                    <span class="radioButton" style={{html-safe (concat "background-color: " colorOption)}}></span>
+                </label>
+                {{/each}}
+            </div>
+
+            <p>Size</p>    
+            <div id="size-options" class="sizeOptions">
+                {{#each this.model.size as |sizeOption|}}
+                <label class="radioContainer">
+                    <input type="radio" name="size" value="{{sizeOption}}" {{on "change" this.selectSize}}>
+                    <span class="radioLabel">{{sizeOption}}</span>
+                </label>
+                {{/each}}
+            </div>
+
         </form>
+        <div class="priceContainer">
+            {{#if this.model.discountedPrice}}
+            <p id="discount">-{{this.model.discount}}%</p>
+            <p id="discountedPrice">{{this.model.discountedPrice}}</p>
+            <p id="mrp">MRP: <s style="color: white; font-size:18px;">{{this.model.price}}</s></p>
+            {{else}}
+            <p id="discountedPrice">Price: {{this.model.price}}</p>
+            {{/if}}
+            <br>
+            <button type="button" class="addToCartButton" {{on "click" this.addToCart}}></button>
+        </div>
     </div>
 </div>

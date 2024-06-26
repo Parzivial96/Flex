@@ -6,6 +6,15 @@ export default class ManageProductRoute extends Route {
   @service userData;
   @service productData;
 
+  async beforeModel() {
+    super.beforeModel(...arguments);
+    if (sessionStorage.getItem('access') != null) {
+      await this.productData.fetchProductData();
+    } else {
+      this.router.transitionTo('login');
+    }
+  }
+
   async model() {
     let products = this.productData.products;
 

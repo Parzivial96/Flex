@@ -1,9 +1,7 @@
 <nav class="menu">
   {{log this.router.currentRouteName}}
   <div class="pageName">
-  <LinkTo @route="index" class="menu-index">
     <h1>Flex</h1>
-  </LinkTo>
   </div>
   {{#if (not-eq this.shouldHideDiv true)}}
   <div class="search">
@@ -11,19 +9,19 @@
   </div>
   <div class="links">
     <div>
-    <LinkTo @route="index" class="menu-index">
-      Home
-    </LinkTo>
+      <LinkTo @route="index" class="menu-index">
+        Home
+      </LinkTo>
     </div>
     <div>
-    <LinkTo @route="cart" class="menu-about">
-      Cart
-    </LinkTo>
+      <LinkTo @route="cart" class="menu-about">
+        Cart
+      </LinkTo>
     </div>
     <div class="navProfileContainer">
-    <LinkTo @route="profile" class="menu-profile">
-      <img src="data:image/png;base64,{{this.userData.user.dp}}">
-    </LinkTo>
+      <LinkTo @route="profile" class="menu-profile">
+        <img src="data:image/png;base64,{{this.userData.user.dp}}">
+      </LinkTo>
     </div>
   </div>
   {{/if}}

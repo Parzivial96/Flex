@@ -10,6 +10,7 @@
 
 body {
   background-color: aliceblue;
+  color: #000;
 }
 
 .loginContainer,
@@ -245,6 +246,9 @@ input:focus {
   width: 250px;
   height: 300px;
   border-radius: 10px;
+  box-shadow:
+    rgb(0 0 0 / 16%) 0 3px 6px,
+    rgb(0 0 0 / 23%) 0 3px 6px;
   background-color: rgb(211 211 211);
   display: flex;
   flex-direction: column;
@@ -457,6 +461,7 @@ input:focus {
 .products-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
+  row-gap: 40px;
   padding: 50px;
 }
 
@@ -464,8 +469,11 @@ input:focus {
   width: 300px;
   height: 400px;
   background-color: antiquewhite;
+  border-radius: 10px;
   padding: 10px;
-  border: 1px solid black;
+  box-shadow:
+    rgb(0 0 0 / 16%) 0 3px 6px,
+    rgb(0 0 0 / 23%) 0 3px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -644,36 +652,146 @@ strike.straight::before {
   width: 102%;
 }
 
-.addtocartContainer {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-}
-
-.addtocartContainer:hover {
-  cursor: pointer;
-}
-
-#addtocart {
-  object-fit: contain;
-  width: 80%;
-  height: 80%;
-}
-
 .previewContainer {
   display: flex;
   padding: 20px;
   border: 0.5px solid #ccc;
   border-radius: 10px;
-  margin: 20px;
+  margin: 20px auto;
+  width: fit-content;
   box-shadow:
     rgb(50 50 93 / 25%) 0 50px 100px -20px,
     rgb(0 0 0 / 30%) 0 30px 60px -30px;
+}
+
+.previewProductRightSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #e46855;
+  width: 80%;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.previewProductRightSection p,
+label {
+  color: white;
+}
+
+.previewProductRightSection label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.productTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#gender {
+  color: #0008;
+  font-size: 12px;
+  padding: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+#discount {
+  color: rgb(0 0 0);
+  font-size: 24px;
+  display: inline;
+}
+
+#discountedPrice {
+  display: inline;
+  font-size: 30px;
+}
+
+.addProductForm label {
+  color: #000;
+}
+
+.editForm label {
+  color: #000;
+}
+
+.colorOptions,
+.sizeOptions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.radioContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.radioContainer input[type="radio"] {
+  display: none;
+}
+
+.radioButton,
+.radioLabel {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.radioButton {
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  opacity: 0.6;
+}
+
+.radioContainer input[type="radio"]:checked + .radioButton {
+  border: 2px solid rgb(255 255 255);
+  opacity: 1;
+}
+
+.radioLabel {
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.radioContainer input[type="radio"]:checked + .radioLabel {
+  background-color: #d0d0d0;
+  border: 1px solid #000;
+}
+
+.addToCartButton {
+  background: url("../assets/addtocart.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 50px;
+  border: none;
+  margin-top: 20px;
+}
+
+.floating-message {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.floating-message.visible {
+  opacity: 1;
 }

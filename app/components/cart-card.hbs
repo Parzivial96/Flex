@@ -3,7 +3,8 @@
     <div class="cartDetails">
         <p id="productName">{{@orderDetails.name}}</p>
         <p>Color : {{@orderDetails.color}} | Size : {{@orderDetails.size}}</p>
-        <p>Discount : {{@orderDetails.discount}}%</p>
-        <button id="productPrice" type="button">BUY NOW <span id="price">₹{{@orderDetails.price}}</span></button>  
+        <p>Discount : {{@orderDetails.productDiscount}}%</p>
+        <p>MRP : {{@orderDetails.productPrice}}</p>
+        <button id="productPrice" type="button" {{on "click" this.addToOrder}}>BUY NOW <span id="price">₹{{@orderDetails.discountedPrice}}</span></button>  
     </div>
 </div>

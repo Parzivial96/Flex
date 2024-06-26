@@ -5,7 +5,15 @@ export default class DashboardRoute extends Route {
   @service userData;
   @service router;
 
-  beforeModel() {
+  async beforeModel() {
+    super.beforeModel(...arguments);
+
+    if (sessionStorage.getItem('access') != null) {
+      await this.userData.fetchUserData();
+    } else {
+      this.router.transitionTo('login');
+    }
+
     if (this.userData.user.role === 'Consumer') {
       this.router.transitionTo('index');
     }

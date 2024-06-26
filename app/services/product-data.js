@@ -21,10 +21,9 @@ export default class ProductDataService extends Service {
       sessionStorage.clear();
       this.router.transitionTo('login');
     }
-
   }
 
   clearProductData() {
-    this.product = null;
+    this.products = null;
   }
 }

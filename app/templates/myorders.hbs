@@ -1,2 +1,20 @@
 {{page-title "Myorders"}}
-{{outlet}}
+
+<div class="cartContainer">
+    <div class="cartSummaryContainer">
+        <p id="productName">Order Summary</p>
+        <p> Number of Items : {{this.model.length}}</p>
+    </div>
+    {{#each this.model as |orderDetails|}}
+    <div class="cartCard">
+    <img class="cartImage" src="data:image/png;base64,{{orderDetails.dp}}">
+    <div class="cartDetails">
+        <p id="productName">{{orderDetails.name}}</p>
+        <p>Color : {{orderDetails.color}} | Size : {{orderDetails.size}}</p>
+        <p>MRP : {{orderDetails.price}}</p>
+        <p>Discount : {{orderDetails.discount}}%</p>
+        <p>Price : {{orderDetails.discountedPrice}}</p>
+    </div>
+</div>
+    {{/each}}
+</div>

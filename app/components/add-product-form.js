@@ -6,15 +6,16 @@ import { inject as service } from '@ember/service';
 export default class AddProductFormComponent extends Component {
   @tracked dp = null;
   @tracked name = '';
-  @tracked category = '';
+  @tracked category = 'T-Shirt';
   @tracked price = '';
   @tracked discount = '';
   @tracked color = '';
   @tracked size = '';
-  @tracked gender = '';
-  @tracked age = '';
+  @tracked gender = 'Male';
+  @tracked age = 'Kids';
 
   @service router;
+  @service notification;
 
   @action
   updateDp(event) {
@@ -85,10 +86,12 @@ export default class AddProductFormComponent extends Component {
     });
 
     if (response.ok) {
-      location.reload();
-      alert('Product Added');
+      this.notification.showMessage('Product Added 👍');
+      setTimeout(function() {
+        location.reload();
+      }, 5000);
     } else {
-      this.router.transitionTo('/login');
+      this.router.transitionTo('login');
     }
   }
 }

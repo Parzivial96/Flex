@@ -1,27 +1,24 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class EditRoute extends Route {
-  async model(params) {
-    try {
-      let response = await fetch(
-        'http://localhost:8080/FlexAPI/getProduct?id=' + params.id,
-        {
-          method: 'GET',
-          headers: {
-            access: sessionStorage.getItem('access'),
-          },
-        },
-      );
+  @service router;
+  @service productData;
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch products');
-      }
-
-      let product = await response.json();
-
-      return product[0];
-    } catch (error) {
-      console.error('Error fetching product:', error);
+  async beforeModel() {
+    super.beforeModel(...arguments);
+    if (sessionStorage.getItem('access') != null) {
+      await this.productData.fetchProductData();
+    } else {
+      this.router.transitionTo('login');
     }
+  }
+
+  async model(params) {
+    let products = this.productData.products;
+
+    let filteredProduct = products.filter((product) => product.id == params.id);
+
+    return filteredProduct[0];
   }
 }

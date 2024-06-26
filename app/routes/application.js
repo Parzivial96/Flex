@@ -7,7 +7,9 @@ export default class ApplicationRoute extends Route {
 
   async beforeModel() {
     super.beforeModel(...arguments);
-    await this.userData.fetchUserData();
-    await this.productData.fetchProductData();
+    if (sessionStorage.getItem('access') != null) {
+      await this.userData.fetchUserData();
+      await this.productData.fetchProductData();
+    }
   }
 }
