@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default class MyordersRoute extends Route {
-    @service order;
+  @service order;
   @service router;
 
   async beforeModel() {
@@ -12,12 +12,14 @@ export default class MyordersRoute extends Route {
       this.router.transitionTo('login');
     }
   }
-  
+
   async model() {
     let orders = this.order.orders;
-    let filteredOrders = orders.filter((order) => order.status == 1);  
-    filteredOrders.forEach(filteredOrder => {
-        filteredOrder.discountedPrice = filteredOrder.productPrice - (filteredOrder.productPrice * (filteredOrder.productDiscount/100));
+    let filteredOrders = orders.filter((order) => order.status == 1);
+    filteredOrders.forEach((filteredOrder) => {
+      filteredOrder.discountedPrice =
+        filteredOrder.productPrice -
+        filteredOrder.productPrice * (filteredOrder.productDiscount / 100);
     });
     return filteredOrders;
   }

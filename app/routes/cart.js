@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class CartRoute extends Route {
   @service order;
@@ -12,13 +13,16 @@ export default class CartRoute extends Route {
       this.router.transitionTo('login');
     }
   }
-  
+
   async model() {
     let orders = this.order.orders;
-    let filteredOrders = orders.filter((order) => order.status == 0);  
-    filteredOrders.forEach(filteredOrder => {
-      filteredOrder.discountedPrice = filteredOrder.productPrice - (filteredOrder.productPrice * (filteredOrder.productDiscount/100));
+    let filteredOrders = orders.filter((order) => order.status == 0);
+    filteredOrders.forEach((filteredOrder) => {
+      filteredOrder.discountedPrice =
+        filteredOrder.productPrice -
+        filteredOrder.productPrice * (filteredOrder.productDiscount / 100);
     });
+
     return filteredOrders;
   }
 }

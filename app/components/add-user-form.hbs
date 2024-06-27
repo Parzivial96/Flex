@@ -1,0 +1,35 @@
+<form class="addProductForm" {{on "submit" this.handleAddUser}}>
+    <div class="formField">
+        <label for="udp">User Image:</label>
+        <input type="file" id="udp" name="dp" {{on "input" this.updateDp}} required>
+    </div>
+
+    <div class="formField">
+        <label for="uname">Name:</label>
+        <input type="text" id="uname" name="name" {{on "input" this.updateName}} required>
+    </div>
+
+    <div class="formField">
+        <label for="uemail">Email:</label>
+        <input type="text" id="uemail" name="email" {{on "input" this.updateEmail}} required>
+    </div>
+
+    <div class="formField">
+        <label for="upassword">Password:</label>
+        <input type="text" id="upassword" name="password" {{on "input" this.updatePassword}} required>
+    </div>
+
+    <div class="selectContainer">
+        <div class="formField">
+            <label for="urole">Role:</label>
+            <select id="urole" name="role" {{on "input" this.updateRole}} required>
+                <option value="Consumer" selected>Consumer</option>
+                <option value="Seller">Seller</option>
+                <option value="Admin">Admin</option>
+            </select>
+        </div>
+    </div>
+
+    <input type="submit" value="Save" class="button" style="margin-left: 50px;">
+
+</form>

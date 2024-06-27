@@ -23,7 +23,9 @@ export default class PreviewController extends Controller {
   addToCart() {
     if (this.selectedColor && this.selectedSize) {
       const product = this.model;
-      if(this.order.addOrder(product.id,this.selectedColor,this.selectedSize)){
+      if (
+        this.order.addOrder(product.id, this.selectedColor, this.selectedSize)
+      ) {
         this.notification.showMessage('Item added to cart 👍');
       } else {
         this.notification.showMessage('Some problem adding item to cart 😬');

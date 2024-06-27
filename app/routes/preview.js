@@ -27,8 +27,6 @@ export default class PreviewRoute extends Route {
       }
     });
 
-    console.log(filteredProduct);
-
     return filteredProduct[0];
   }
 }

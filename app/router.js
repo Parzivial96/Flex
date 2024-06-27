@@ -18,8 +18,9 @@ Router.map(function () {
   this.route('manageUser');
   this.route('manageProduct');
   this.route('explore', { path: 'explore/:category' });
-  this.route('edit', { path: 'edit/:id' });
+  this.route('editProduct', { path: 'editProduct/:id' });
   this.route('addProduct');
   this.route('preview', { path: 'preview/:id' });
   this.route('addUser');
+  this.route('editUser', { path: 'editUser/:id' });
 });

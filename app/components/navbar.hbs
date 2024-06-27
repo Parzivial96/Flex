@@ -5,7 +5,20 @@
   </div>
   {{#if (not-eq this.shouldHideDiv true)}}
   <div class="search">
-    <input type="text" name="searchquery" placeholder="Search for categories and more...">
+    <input type="text" name="searchquery" placeholder="Search for categories and more..." autocomplete="off"
+      {{on "input" this.updateSearchQuery}} {{on "focus" this.handleFocus}} {{on "blur" this.handleBlur}}>
+    {{#if this.isSearchFocused}}
+    <div class="searchItemContainer">
+      {{#each this.searchProducts as |product|}}
+      <LinkTo @route="preview" @model={{product.id}}>
+        <div class="searchItem">
+          <img src="data:image/png;base64,{{product.dp}}">
+          <p>{{product.name}}</p>
+        </div>
+      </LinkTo>
+      {{/each}}
+    </div>
+    {{/if}}
   </div>
   <div class="links">
     <div>
@@ -20,7 +33,11 @@
     </div>
     <div class="navProfileContainer">
       <LinkTo @route="profile" class="menu-profile">
+        {{#if this.userData.user.dp}}
         <img src="data:image/png;base64,{{this.userData.user.dp}}">
+        {{else}}
+        <img src="../assets/defaultDP.png">
+        {{/if}}
       </LinkTo>
     </div>
   </div>

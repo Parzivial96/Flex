@@ -1,2 +1,15 @@
 {{page-title "ManageUser"}}
-{{outlet}}
+
+<div class="addProductButtonContainer">
+    <LinkTo @route="addUser" style="margin-bottom: 3px; color:white;">
+        +
+    </LinkTo>
+</div>
+
+<div class="manageContainer">
+    {{#each this.model as |user|}}
+    <LinkTo @route="editUser" @model={{user.id}}>
+        <User @user={{user}} />
+    </LinkTo>
+    {{/each}}
+</div>

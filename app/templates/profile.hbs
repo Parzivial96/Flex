@@ -1,8 +1,12 @@
 {{page-title "Profile"}}
 
 <div class="profileContainer">
-    <div class="profileImageContainer">
+    <div class="profileImageContainer" {{on "click" this.showImageUpload}}>
+        {{#if @model.dp}}
         <img src="data:image/png;base64,{{@model.dp}}">
+        {{else}}
+        <img src="../assets/defaultDP.png">
+        {{/if}}
     </div>
     <div class="userDetails">
         <p id="username">{{@model.name}}</p>
@@ -30,3 +34,15 @@
     </LinkTo>
     {{/if}}
 </div>
+
+{{#if this.isImageUploadVisible}}
+<div class="imageUploadPopup">
+    <div class="popupContent">
+        <input type="file" accept="image/*" {{on "change" this.handleImageChange}}>
+        <div>
+            <button class="button" type="button" {{on "click" this.saveImage}}>Save</button>
+            <button class="button" type="button" {{on "click" this.hideImageUpload}}>Cancel</button>
+        </div>
+    </div>
+</div>
+{{/if}}

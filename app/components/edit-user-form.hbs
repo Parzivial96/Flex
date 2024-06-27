@@ -1,0 +1,35 @@
+<form class="editForm" {{on "submit" this.handleUpdateUser}}>
+
+    <div class="editDpContainer">
+        <img src="data:image/png;base64,{{this.dp}}">
+        <input type="file" name="dp" {{on "input" this.updateNewDp}}>
+        {{#if this.previewDp}}
+        <img src="{{this.previewDp}}">
+        {{/if}}
+    </div>
+
+    <div class="formField">
+        <label for="uname">Name:</label>
+        <input type="text" id="uname" value="{{this.name}}" {{on "input" this.updateName}}>
+    </div>
+
+    <div class="formField">
+        <label for="uemail">Email:</label>
+        <input type="text" id="uemail" value="{{this.email}}" {{on "input" this.updateEmail}}>
+    </div>
+
+    <div class="formField">
+        <label for="upassword">Password:</label>
+        <input type="text" id="upassword" value="{{this.password}}" {{on "input" this.updatePassword}}>
+    </div>
+
+    <div class="formField">
+        <label for="urole">Role:</label>
+        <input type="text" id="urole" value="{{this.role}}" {{on "input" this.updateRole}}>
+    </div>
+
+    <div class="editActionButtonContainer">
+        <input type="submit" value="Save">
+        <input type="button" value="Delete" {{on "click" this.handleDeleteUser}}>
+    </div>
+</form>

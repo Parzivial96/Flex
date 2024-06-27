@@ -87,7 +87,7 @@ export default class AddProductFormComponent extends Component {
 
     if (response.ok) {
       this.notification.showMessage('Product Added 👍');
-      setTimeout(function() {
+      setTimeout(function () {
         location.reload();
       }, 5000);
     } else {
