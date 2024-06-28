@@ -1,2 +1,20 @@
 {{page-title "Favorites"}}
-{{outlet}}
+<div class="products-container">
+{{#each @model as |favorite|}}
+    <div class="favorite-container">
+    <img id="bin" src="../assets/bin.png" {{on "click" (fn this.handleDeleteFavorite favorite.productId)}}>
+    <LinkTo @route="preview" @model={{favorite.productId}}>
+    <div class="product-card">
+      <img src="data:image/png;base64,{{favorite.dp}}">
+      <h3>{{favorite.name}}</h3>
+      <p>Discount: {{favorite.discount}}%</p>
+      {{#if (not-eq favorite.discountedPrice favorite.price)}}
+      <p>Price: <s>₹{{favorite.price}}</s> {{favorite.discountedPrice}}</p>
+      {{else}}
+      <p>Price: ₹{{favorite.discountedPrice}}</p>
+      {{/if}}
+    </div>
+  </LinkTo>
+  </div>
+{{/each}}
+</div>

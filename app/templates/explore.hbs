@@ -1,6 +1,12 @@
 {{page-title "Explore"}}
 <div class="products-container">
   {{#each @model as |product|}}
+  <div class="favorite-container">
+    {{#if product.isFavorite}}
+    <img src="../assets/like.png" id="like" {{on "click" (fn this.togleFavorite product.id product.isFavorite)}}>
+    {{else}}
+    <img src="../assets/dislike.png" id="like" {{on "click" (fn this.togleFavorite product.id product.isFavorite)}}>
+    {{/if}}
   <LinkTo @route="preview" @model={{product.id}}>
     <div class="product-card">
       <img src="data:image/png;base64,{{product.dp}}">
@@ -15,6 +21,7 @@
       {{/if}}
     </div>
   </LinkTo>
+  </div>
   {{else}}
   <p>No products found for this category.</p>
   {{/each}}
