@@ -9,8 +9,8 @@ export default class ExploreRoute extends Route {
   async beforeModel() {
     super.beforeModel(...arguments);
     if (sessionStorage.getItem('access') != null) {
-      await this.productData.fetchProductData();
-      await this.favoriteData.fetchFavoriteData();
+        await this.productData.fetchProductData();
+        await this.favoriteData.fetchFavoriteData();
     } else {
       this.router.transitionTo('login');
     }
@@ -23,6 +23,7 @@ export default class ExploreRoute extends Route {
     let filteredProducts = products.filter(
       (product) => product.category === params.category,
     );
+
 
     filteredProducts.forEach((filteredProduct) => {
       filteredProduct.discountedPrice =

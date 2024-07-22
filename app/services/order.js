@@ -2,7 +2,7 @@ import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class OrderService extends Service {
-  @tracked orders;
+  @tracked orders = null;
 
   async addOrder(productId, color, size) {
     let response = await fetch('http://localhost:8080/FlexAPI/addOrder', {

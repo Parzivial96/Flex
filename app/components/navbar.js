@@ -22,7 +22,14 @@ export default class NavbarComponent extends Component {
       let products = this.productData.products;
       let filteredProducts = [];
       products.forEach((product) => {
-        let productString = JSON.stringify(product).toLowerCase();
+        let productSearchJson = {
+          name: product.name,
+          category: product.category,
+          gender: product.gender,
+          age: product.age,
+          color: product.color
+        };
+        let productString = JSON.stringify(productSearchJson).toLowerCase();
         if (productString.includes(this.searchQuery.toLowerCase())) {
           filteredProducts.push(product);
         }

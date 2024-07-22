@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 export default class CartCardComponent extends Component {
   @service notification;
   @service router;
+  @service order;
 
   @action
   async addToOrder(event) {

@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class FavoriteDataService extends Service {
-  @tracked favorites;
+  @tracked favorites = null;
   @service notification;
 
   async fetchFavoriteData() {

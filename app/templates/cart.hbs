@@ -4,6 +4,7 @@
     <div class="cartSummaryContainer">
         <p id="productName">Cart Summary</p>
         <p> Number of Items : {{this.model.length}}</p>
+        <p> Total Cost : {{this.model.totalCartPrice}}</p>
     </div>
     {{#each this.model as |orderDetails|}}
     <CartCard @orderDetails={{orderDetails}} />

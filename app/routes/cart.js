@@ -16,12 +16,15 @@ export default class CartRoute extends Route {
   async model() {
     let orders = this.order.orders;
     let filteredOrders = orders.filter((order) => order.status == 0);
+    let totalCost = 0;
     filteredOrders.forEach((filteredOrder) => {
       filteredOrder.discountedPrice =
         filteredOrder.productPrice -
         filteredOrder.productPrice * (filteredOrder.productDiscount / 100);
+      totalCost += filteredOrder.discountedPrice;
     });
-
+    filteredOrders.totalCartPrice = totalCost;
+    console.log(filteredOrders);
     return filteredOrders;
   }
 }

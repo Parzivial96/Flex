@@ -7,6 +7,7 @@ export default class AuthService extends Service {
   @tracked access = sessionStorage.getItem('access');
   @service userData;
   @service router;
+  @service notification;
 
   constructor() {
     super(...arguments);
@@ -48,9 +49,9 @@ export default class AuthService extends Service {
 
       if (response.ok) {
         this.router.transitionTo('login');
-        alert('Login to Start Shoping!');
+        this.notification.showMessage("Login to start shopping.");
       } else {
-        alert('Error! Try Again!');
+        this.notification.showMessage("Please Try Again.");
       }
     } catch (error) {
       console.error('Error during signup: ', error);

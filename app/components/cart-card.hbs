@@ -5,9 +5,10 @@
         <p>Color : {{@orderDetails.color}} | Size : {{@orderDetails.size}}</p>
         <p>Discount : {{@orderDetails.productDiscount}}%</p>
         <p>MRP : {{@orderDetails.productPrice}}</p>
-        <button id="productPrice" type="button" {{on "click" this.addToOrder}}>BUY NOW <span id="price">₹{{@orderDetails.discountedPrice}}</span></button>
-        <div class="removeFromCart" {{on "click" this.removeFromCart}}>
-            <img src="../assets/bin.png">
-        </div>  
+        <button id="productPrice" type="button" {{on "click" this.addToOrder}}>BUY NOW <span
+                id="price">₹{{@orderDetails.discountedPrice}}</span></button>
+    </div>
+    <div class="removeFromCart" {{on "click" this.removeFromCart}}>
+        <img src="../assets/bin.png">
     </div>
 </div>

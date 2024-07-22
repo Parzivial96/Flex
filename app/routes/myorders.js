@@ -8,6 +8,7 @@ export default class MyordersRoute extends Route {
   async beforeModel() {
     if (sessionStorage.getItem('access') != null) {
       await this.order.getOrder();
+
     } else {
       this.router.transitionTo('login');
     }

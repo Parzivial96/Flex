@@ -5,14 +5,13 @@ import { tracked } from '@glimmer/tracking';
 
 export default class ExploreController extends Controller {
     @service favoriteData;
+    @tracked test = "hello";
 
     @action
     togleFavorite(productId, isFavorite){
         if(isFavorite){
-            //deleteFavorite
             this.favoriteData.handleDeleteFavorite(productId);
         } else{
-            //addFavorite
             this.favoriteData.handleAddFavorite(productId);
         }
     }
